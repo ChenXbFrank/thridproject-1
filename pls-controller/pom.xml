@@ -28,6 +28,14 @@
             <artifactId>pls-model</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
+        <!--引入model的依赖 -->
+        <dependency>
+            <groupId>com.pls</groupId>
+            <artifactId>pls-service</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
 
     <!--这里需要指明工程启动的主类，父工程里边不需要build这一块了-->

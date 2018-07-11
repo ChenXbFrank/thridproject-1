@@ -11,5 +11,12 @@
 
     <artifactId>pls-dao</artifactId>
 
-
+    <dependencies>
+        <!--引入model的依赖 -->
+        <dependency>
+            <groupId>com.pls</groupId>
+            <artifactId>pls-model</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

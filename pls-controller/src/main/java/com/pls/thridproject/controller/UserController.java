@@ -3,6 +3,7 @@ package com.pls.thridproject.controller;
 import com.pls.thridproject.model.ResultVO;
 import com.pls.thridproject.model.Users;
 import com.pls.thridproject.repository.UserRepository;
+import com.pls.thridproject.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,9 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private UsersService usersService;
 
     @GetMapping(value = "/getUsers",produces = "application/json; charset=utf-8")
     public ResultVO getUsers(){
@@ -47,4 +51,29 @@ public class UserController {
         return resultVO;
     }
 
+    @PostMapping(value = "/getByName",produces = "application/json; charset=utf-8")
+    public ResultVO getByName(@RequestParam("name") String name){
+        List<Users> usersList = usersService.getByName(name);
+        ResultVO resultVO=new ResultVO();
+        resultVO.setCode(200);
+        resultVO.setData(usersList);
+        resultVO.setMsg("查询成功");
+        return resultVO;
+    }
+
+    @PostMapping(value = "/save",produces = "application/json; charset=utf-8")
+    public ResultVO save(@RequestParam("name") String name,
+                         @RequestParam("age") Integer age){
+        String id = UUID.randomUUID().toString().replaceAll("-", "");
+        Users user = new Users();
+        user.setId(id);
+        user.setName(name);
+        user.setAge(age);
+        usersService.save(user);
+        ResultVO resultVO=new ResultVO();
+        resultVO.setCode(200);
+        resultVO.setData(user);
+        resultVO.setMsg("保存 "+name+" 成功");
+        return resultVO;
+    }
 }

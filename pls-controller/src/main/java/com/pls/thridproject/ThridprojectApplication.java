@@ -3,6 +3,7 @@ package com.pls.thridproject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -11,6 +12,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 import java.util.List;
 
 @SpringBootApplication
+//这里加上dao/mapper所在的包名  启动时自动扫描
+@MapperScan(basePackages = "com.pls.thridproject.dao")
 public class ThridprojectApplication extends WebMvcConfigurationSupport {
 
 	public static void main(String[] args) {
