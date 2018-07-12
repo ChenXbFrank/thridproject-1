@@ -4,7 +4,6 @@ import com.pls.thridproject.model.Users;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
-import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
 
