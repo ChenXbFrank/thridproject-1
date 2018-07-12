@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>pls-controller</artifactId>
+    <artifactId>pls-web</artifactId>
 
     <!--将package值（默认jar）调整成war，这里就必须添加一个web.xml文件了 -->
     <packaging>war</packaging>
