@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <!--该模块主要是处理dao与数据交互的 -->
     <artifactId>pls-dao</artifactId>
 
     <dependencies>

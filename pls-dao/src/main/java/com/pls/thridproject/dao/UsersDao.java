@@ -20,7 +20,7 @@ public interface UsersDao {
 	/*@Results({
 		@Result(property="id",column="id"),
 		@Result(property="name",column="name"),
-		@Result(property="sex",column="sex")
+		@Result(property="age",column="age")
 	})*/
 	List<Users> getByName(String name);
 
