@@ -7,19 +7,18 @@ import com.pls.thridproject.model.Users;
 import com.pls.thridproject.repository.UserRepository;
 import com.pls.thridproject.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.UUID;
 
 /**
  * Created by 81046 on 2018-07-10
- *                               http://localhost:8084/getUsers
+ *                            测试访问链接： http://localhost:8084/user/getUsers
  * 页面跳转不能使用 @RestController  而是使用@Controller
  */
 @RestController
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
