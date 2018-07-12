@@ -2,6 +2,7 @@ package com.pls.thridproject.dao;
 
 import com.pls.thridproject.model.Users;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.mybatis.spring.annotation.MapperScan;
 
@@ -25,12 +26,32 @@ public interface UsersDao {
 	List<Users> getByName(String name);
 
     @Select("select * from users where id = #{id}")
-    Users getById(int id);
+    Users getById(String id);
 
     @Select("select name from users where id = #{id}")
     String getNameById(String id);
 
     @Insert("insert into users(id,name,age) values(#{id},#{name},#{age})")
-//    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
+    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     void save(Users users);
+
+    /**
+     * 根据年龄查询单个对象
+     * @param id
+     * @return
+     */
+    Users findUserById(String id);
+
+    /**
+     * 保存用户对象
+     * @param users
+     */
+    void insertUser(Users users);
+
+    /**
+     * 根据名字查询集合对象
+     * @param name
+     * @return
+     */
+    List<Users> selectUsersByName(String name);
 }

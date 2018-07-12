@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pls.thridproject.dao.UsersDao">
+    <!--根据年龄查询单个对象-->
+    <select id="findUserById" parameterType="java.lang.String" resultType="com.pls.thridproject.model.Users">
+        SELECT * FROM users WHERE id = #{id}
+    </select>
+
+    <!--插入一个对象-->
+    <insert id="insertUser" parameterType="HashMap" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO users(id,name, age) VALUES(#{id}, #{name}, #{age})
+    </insert>
+
+    <!--这是返回的集合的属性-->
+    <resultMap id="userBaseMap" type="com.pls.thridproject.model.Users">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="age" property="age" />
+    </resultMap>
+
+    <!--根据名字查询集合对象-->
+    <select id="selectUsersByName" parameterType="java.lang.String" resultMap="userBaseMap">
+        SELECT * FROM users WHERE name = #{name}
+    </select>
+
+</mapper>

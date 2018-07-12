@@ -5,6 +5,7 @@ import com.pls.thridproject.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -36,7 +37,35 @@ public class UsersService {
     /**
      * 保存用户对象
      */
+    @Transactional
     public void save(Users users){
         usersDao.save(users);
+    }
+
+    /**
+     * 根据年龄查询单个对象
+     * @param id
+     * @return
+     */
+    public Users findUserById(String id){
+        return usersDao.findUserById(id);
+    }
+
+    /**
+     * 保存用户对象
+     * @param users
+     */
+    @Transactional
+    public void insertUser(Users users){
+        usersDao.insertUser(users);
+    }
+
+    /**
+     * 根据名字查询集合对象
+     * @param name
+     * @return
+     */
+    public List<Users> selectUsersByName(String name){
+        return usersDao.selectUsersByName(name);
     }
 }
