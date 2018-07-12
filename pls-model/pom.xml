@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <!--该模块主要是存放所有相关的实体类的 -->
     <artifactId>pls-model</artifactId>
 
 
