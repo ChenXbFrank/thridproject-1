@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <!--该模块主要是存放一些基础工具类 -->
     <artifactId>pls-base</artifactId>
 
 
