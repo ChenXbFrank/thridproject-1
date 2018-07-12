@@ -9,16 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <!--该模块主要是处理相关的业务逻辑的 -->
     <artifactId>pls-service</artifactId>
 
     <dependencies>
-        <!--引入model的依赖 -->
-        <dependency>
-            <groupId>com.pls</groupId>
-            <artifactId>pls-model</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
+        <!--引入dao的依赖 -->
         <dependency>
             <groupId>com.pls</groupId>
             <artifactId>pls-dao</artifactId>
