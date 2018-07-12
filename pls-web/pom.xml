@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <!--该模块就是主类了，和前端交互数据-->
     <artifactId>pls-web</artifactId>
 
     <!--将package值（默认jar）调整成war，这里就必须添加一个web.xml文件了 -->
@@ -22,14 +23,7 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
-        <!--引入model的依赖 -->
-        <dependency>
-            <groupId>com.pls</groupId>
-            <artifactId>pls-model</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
-        <!--引入model的依赖 -->
+        <!--引入service的依赖 -->
         <dependency>
             <groupId>com.pls</groupId>
             <artifactId>pls-service</artifactId>
