@@ -99,7 +99,7 @@ public class UserController {
     /**
      *  根据ID查询单个对象
      */
-    @PostMapping(value = "/getNameById",produces = "application/json; charset=utf-8")
+    @GetMapping(value = "/getNameById",produces = "application/json; charset=utf-8")
     public ResultVO getNameById(@RequestParam("id") String id){
         String name = usersService.getNameById(id);
         return ResultUtil.success(name);
