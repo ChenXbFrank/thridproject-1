@@ -75,6 +75,10 @@ public class ThridprojectApplication extends WebMvcConfigurationSupport {
 				.build();
 	}
 
+    /**
+     * 这里配置swagger的title和描述等
+     * @return
+     */
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
 				//页面标题
