@@ -2,6 +2,7 @@ package com.pls.thridproject.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.pls.thridproject.common.ResultUtil;
 import com.pls.thridproject.model.ResultVO;
 import com.pls.thridproject.model.Users;
 import com.pls.thridproject.repository.UserRepository;
@@ -45,12 +46,7 @@ public class UserController {
     @GetMapping(value = "/getUsers",produces = "application/json; charset=utf-8")
     public ResultVO getUsers(){
         List<Users> usersList = userRepository.findAll();
-        //返回集合对象给页面
-        ResultVO resultVO=new ResultVO();
-        resultVO.setCode(200);
-        resultVO.setData(usersList);
-        resultVO.setMsg("查询成功");
-        return resultVO;
+        return ResultUtil.success(usersList);
     }
 
     /**
@@ -68,11 +64,7 @@ public class UserController {
         user.setName(name);
         user.setAge(age);
         Users users = userRepository.save(user);
-        ResultVO resultVO=new ResultVO();
-        resultVO.setCode(200);
-        resultVO.setData(users);
-        resultVO.setMsg("保存成功");
-        return resultVO;
+        return ResultUtil.success(users);
     }
 
     /**
@@ -83,11 +75,7 @@ public class UserController {
     @PostMapping(value = "/getByName",produces = "application/json; charset=utf-8")
     public ResultVO getByName(@RequestParam("name") String name){
         List<Users> usersList = usersService.getByName(name);
-        ResultVO resultVO=new ResultVO();
-        resultVO.setCode(200);
-        resultVO.setData(usersList);
-        resultVO.setMsg("查询成功");
-        return resultVO;
+        return ResultUtil.success(usersList);
     }
 
     /**
@@ -105,11 +93,7 @@ public class UserController {
         user.setName(name);
         user.setAge(age);
         usersService.save(user);
-        ResultVO resultVO=new ResultVO();
-        resultVO.setCode(200);
-        resultVO.setData(user);
-        resultVO.setMsg("保存 "+name+" 成功");
-        return resultVO;
+        return ResultUtil.success(user);
     }
 
     /**
@@ -118,11 +102,7 @@ public class UserController {
     @PostMapping(value = "/getNameById",produces = "application/json; charset=utf-8")
     public ResultVO getNameById(@RequestParam("id") String id){
         String name = usersService.getNameById(id);
-        ResultVO resultVO=new ResultVO();
-        resultVO.setCode(200);
-        resultVO.setData(name);
-        resultVO.setMsg("根据ID查询 "+name+" 成功");
-        return resultVO;
+        return ResultUtil.success(name);
     }
 
     /**
@@ -131,11 +111,7 @@ public class UserController {
     @PostMapping(value = "/getUserById",produces = "application/json; charset=utf-8")
     public ResultVO getUserById(@RequestParam("id") String id){
         Users user = usersService.findUserById(id);
-        ResultVO resultVO=new ResultVO();
-        resultVO.setCode(200);
-        resultVO.setData(user);
-        resultVO.setMsg("根据年龄查询 "+user.getName()+" 成功");
-        return resultVO;
+        return ResultUtil.success(user);
     }
 
     /**
@@ -149,11 +125,7 @@ public class UserController {
         users.setAge(age);
         users.setId(UUID.randomUUID().toString().replaceAll("-", ""));
         usersService.insertUser(users);
-        ResultVO resultVO=new ResultVO();
-        resultVO.setCode(200);
-        resultVO.setData(users);
-        resultVO.setMsg("保存 "+users +" 成功");
-        return resultVO;
+        return ResultUtil.success(users);
     }
 
     /**
@@ -169,11 +141,7 @@ public class UserController {
         List<Users> usersList = usersService.selectUsersByName(name);
         //返回集合对象给页面
         PageInfo<Users> pageInfo=new PageInfo<>(usersList);
-        ResultVO resultVO=new ResultVO();
-        resultVO.setCode(200);
-        resultVO.setData(pageInfo);
-        resultVO.setMsg("查询成功");
-        return resultVO;
+        return ResultUtil.success(pageInfo);
     }
 
 }

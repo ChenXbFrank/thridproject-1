@@ -32,5 +32,13 @@ public class ResultVO<T> {
 	public void setData(T data) {
 		this.data = data;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "ResultVO{" +
+				"code=" + code +
+				", msg='" + msg + '\'' +
+				", data=" + data +
+				'}';
+	}
 }
