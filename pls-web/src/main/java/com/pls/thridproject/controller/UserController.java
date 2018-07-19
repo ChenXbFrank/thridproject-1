@@ -5,10 +5,18 @@ import com.github.pagehelper.PageInfo;
 import com.pls.thridproject.model.ResultVO;
 import com.pls.thridproject.model.Users;
 import com.pls.thridproject.repository.UserRepository;
-import com.pls.thridproject.service.UsersService;
+import com.pls.thridproject.service.user.UsersService;
+import org.apache.poi.hssf.usermodel.*;
+import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.util.CellRangeAddress;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.OutputStream;
 import java.util.List;
 import java.util.UUID;
 
@@ -16,9 +24,11 @@ import java.util.UUID;
  * Created by 81046 on 2018-07-10
  *                            测试访问链接： http://localhost:8084/user/getUsers
  * 页面跳转不能使用 @RestController  而是使用@Controller
+ *   @CrossOrigin 该注解解决跨域问题的
  */
 @RestController
 @RequestMapping("/user")
+@CrossOrigin
 public class UserController {
 
     @Autowired
@@ -30,6 +40,7 @@ public class UserController {
     /**
      * 查询所有的对象 repository
      * @return
+     * @CrossOrigin(origins = "http://localhost:8084")   也可以加在具体的某个方法上面的
      */
     @GetMapping(value = "/getUsers",produces = "application/json; charset=utf-8")
     public ResultVO getUsers(){
@@ -164,4 +175,5 @@ public class UserController {
         resultVO.setMsg("查询成功");
         return resultVO;
     }
+
 }

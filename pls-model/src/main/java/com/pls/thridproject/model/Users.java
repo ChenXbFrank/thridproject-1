@@ -2,12 +2,13 @@ package com.pls.thridproject.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 /**
  * Created by 81046 on 2018-07-10
  */
 @Entity
-public class Users {
+public class Users implements Serializable{
     @Id
     private String id;
 
