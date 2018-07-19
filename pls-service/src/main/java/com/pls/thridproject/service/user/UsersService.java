@@ -61,7 +61,7 @@ public class UsersService {
      */
     public Users findUserById(String id){
         // 从缓存中获取Users信息
-        String key = id;
+        String key ="findUserById_"+ id;
         ValueOperations<String, Users> operations = redisTemplate.opsForValue();
 
         // 缓存存在  直接返回
