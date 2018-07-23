@@ -42,7 +42,7 @@ public class UserController {
      * 查询所有的对象 repository
      * @return
      * @CrossOrigin(origins = "http://localhost:8084")   也可以加在具体的某个方法上面的
-     * http://localhost:8084/user/getUsers
+     * http://localhost:8084/user/getUsers  demo
      */
     @GetMapping(value = "/getUsers",produces = "application/json; charset=utf-8")
     public ResultVO getUsers(){
