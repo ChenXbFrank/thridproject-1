@@ -24,7 +24,7 @@ import java.util.List;
 @SpringBootApplication
 //这里加上dao/mapper所在的包名  启动时自动扫描
 @MapperScan(basePackages = "com.pls.thridproject.dao")
-//http://localhost:8084/swagger-ui.htm
+//http://localhost:8084/swagger-ui.html
 @EnableSwagger2
 public class ThridprojectApplication extends WebMvcConfigurationSupport {
 
